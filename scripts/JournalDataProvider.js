@@ -8,15 +8,22 @@ const journal = [
     },
     {
         id: 2,
-        date: "08/13/2025",
+        date: "04/13/2025",
         concept: "Complex flex box",
         entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
         mood: "Ok"
     },
     {
         id: 3,
-        date: "09/24/2025",
+        date: "10/24/2025",
         concept: "Front end program",
+        entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
+        mood: "Ok"
+    },
+    {
+        id: 4,
+        date: "02/13/2025",
+        concept: "Complex flex box",
         entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
         mood: "Ok"
     }
