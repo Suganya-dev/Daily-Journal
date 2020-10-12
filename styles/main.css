@@ -1,11 +1,11 @@
 .main{
     border: 2px solid red;
-    /* height: 75%; */
-    /* width: 85%; */
+    height: 75%; 
+    width: 85%;
     background-color: olivedrab;
     margin-left: 5%;
     margin-top: 5%;
-    /* margin-bottom: 5%; */
+     margin-bottom: 5%;
 
 }
 h1{
@@ -16,8 +16,8 @@ h1{
 
 .body {
     border: 2px solid black;
-    /* width:75%; */
-    /* height: 100%; */
+    width:75%; 
+    height: 100%; 
     margin-bottom: 3%;
     margin-left: 15%;
     display:flex;
@@ -30,9 +30,19 @@ h1{
 .feet{
     border:1px dotted black;
     padding-left: 20%;
-    color:white;
-    font-size: 60px;
+    color: black;
+    font-size: 30px;
 }
+.one{
+    border: 2px solid black;
+    width: 30%;
+    font-size: large;
+    margin-left: 10%;
+}
+ .bodydesign{
+    border: 2px solid cadetblue;
+
+} 
 
 .date1{ 
         display: block;
@@ -40,9 +50,10 @@ h1{
         margin-right: 3px;
         width: 35%;
         height: 35%;
+}
         /* padding-top: 0.35em;
         padding-bottom: 0.625em;
         padding-left: 0.75em;
-        padding-right: 0.75em; */
+        padding-right: 0.75em; 
         border: 2px solid black;
       } 
