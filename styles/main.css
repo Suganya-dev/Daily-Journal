@@ -1,0 +1,48 @@
+.main{
+    border: 2px solid red;
+    /* height: 75%; */
+    /* width: 85%; */
+    background-color: olivedrab;
+    margin-left: 5%;
+    margin-top: 5%;
+    /* margin-bottom: 5%; */
+
+}
+h1{
+    border:1px solid black;
+    font-size: 80px;
+    padding-left: 35%;
+}
+
+.body {
+    border: 2px solid black;
+    /* width:75%; */
+    /* height: 100%; */
+    margin-bottom: 3%;
+    margin-left: 15%;
+    display:flex;
+    flex-direction: column;
+    flex-basis: 3;
+    font-size: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: khaki;
+}
+.feet{
+    border:1px dotted black;
+    padding-left: 20%;
+    color:white;
+    font-size: 60px;
+}
+
+.date1{ 
+        display: block;
+        margin-left: 3px;
+        margin-right: 3px;
+        width: 35%;
+        height: 35%;
+        /* padding-top: 0.35em;
+        padding-bottom: 0.625em;
+        padding-left: 0.75em;
+        padding-right: 0.75em; */
+        border: 2px solid black;
+      } 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h1>Daily Journal</h1>
+        </header>
+        <section class="body"> 
+           
+            <form action="record"> 
+                <fieldset class="article" >  
+                    <p> 
+                    <label for="date1"> Date of Entry :</label>
+                    <input type="date" name="date1" id="date1" size="60">
+                   
+                </p>
+                    <p> 
+                        <label for="date1"> Concepts Covered :</label>
+                    <input type="text" name="Concepts Covered" id="Concepts Covered" size="65" maxlength="70">
+                  
+                    </p> 
+                    <p>  
+                        <label for="date1"> Journal Entry: </label> 
+                    <!-- <input type="text" name="Journal Entry"> -->
+                    <textarea rows="3" cols="3"> </textarea>
+                    </p> 
+                    <!-- <p>    -->
+                        <label for="date1"> Mood for the day:</label> 
+                        <input type="text" name="Mood for the day []" value=" "> 
+                        <select value= "sad",  multiple size="3"> 
+                        <option value="Happy"> Happy</option>
+                        <option value="Sad"> Sad</option>
+                        <option value="Ok"> Ok</option>
+                        </select>
+                        <!-- </p> -->
+
+                </fieldset>
+            </form>
+
+                <p>   <label for="Record journal Entry">Record journal Entry</label> 
+                     </p>
+           
+            <footer class="feet"> 
+
+            <p>Any Questions? Email<a href="sugan0621@gmail.com"> sugan0621@gmail.com</a></p>
+            </footer>
+    
+</section>
+</div>
+
+    <script type="module" src="./scripts/main.js"> 
+    </script>
+    
+</body>
+</html>
+    
