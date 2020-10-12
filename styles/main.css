@@ -1,7 +1,7 @@
 .main{
     border: 2px solid red;
-    /* height: 75%; */
-    /* width: 85%; */
+    height: 75%; 
+    /* width: 85%;
     background-color: olivedrab;
     margin-left: 5%;
     margin-top: 5%;
@@ -16,8 +16,8 @@ h1{
 
 .body {
     border: 2px solid black;
-    /* width:75%; */
-    /* height: 100%; */
+    width:75%; 
+    height: 100%; 
     margin-bottom: 3%;
     margin-left: 15%;
     display:flex;
