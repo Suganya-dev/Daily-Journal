@@ -3,7 +3,7 @@ import { JournalEntryComponent } from "./JournalEntry.js"
 
 
 export const EntryListComponent = () => {
-    const entryLog = document.querySelector("#entryLog")
+    const entryLog = document.querySelector(".article")
 
     const entries = useJournalEntries() 
     
@@ -16,8 +16,7 @@ export const EntryListComponent = () => {
         entryLog.innerHTML += ` 
         <p class="bodydesign">   
         <label for="date1"> Journal Entry: </label> 
-        ${journalHTMLrepresentation}
-        <textarea rows="3" cols="3"> </textarea>
+        <textarea rows="3" cols="3" ${journalHTMLrepresentation}> </textarea>
      </p>
     `
 }
