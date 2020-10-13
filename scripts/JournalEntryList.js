@@ -1,20 +1,24 @@
 import { useJournalEntries } from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
-const entryLog = document.querySelector("#entryLog")
+
 
 export const EntryListComponent = () => {
+    const entryLog = document.querySelector("#entryLog")
 
     const entries = useJournalEntries() 
-    for (const entry of entries) {
+    
 
         let journalHTMLrepresentation =" "
+        for (const entry of entries) {
         journalHTMLrepresentation += JournalEntryComponent (entry)
+        }
 
-        entryLog.innerHTML += `
+        entryLog.innerHTML += ` 
         <p class="bodydesign">   
         <label for="date1"> Journal Entry: </label> 
-         ${journalHTMLrepresentation}
+        ${journalHTMLrepresentation}
         <textarea rows="3" cols="3"> </textarea>
-    </p> `
-    }
-}  
+     </p>
+    `
+}
+ 
