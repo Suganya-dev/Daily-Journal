@@ -1,34 +1,13 @@
-const journal = [
-    {
-        id: 1,
-        date: "07/24/2025",
-        concept: "HTML & CSS",
-        entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-        mood: "Ok"
-    },
-    {
-        id: 2,
-        date: "04/13/2025",
-        concept: "Complex flex box",
-        entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-        mood: "Ok"
-    },
-    {
-        id: 3,
-        date: "10/24/2025",
-        concept: "Front end program",
-        entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-        mood: "Ok"
-    },
-    {
-        id: 4,
-        date: "02/13/2025",
-        concept: "Complex flex box",
-        entry: "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-        mood: "Ok"
-    }
-]
+const journal = []
+export const getEntries =() =>{
+    return fetch("http://localhost:8088/entries")
+    .then((response => response.json)
+    .then(parsedentries => {
+        journal = parsedentries
+    }))
+}
 
+   
 export const useJournalEntries = () => {
     const sortedByDate = journal.sort(
         (currentEntry, nextEntry) => {
@@ -37,3 +16,7 @@ export const useJournalEntries = () => {
         })
     return sortedByDate
 }
+
+// .then(parsedNotes => {
+//     notes = parsedNotes
+// })
