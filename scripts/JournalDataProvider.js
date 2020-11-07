@@ -1,22 +1,40 @@
-const journal = []
+let journal = []
+
+export const useEntries = () =>{
+    return journal.slice()
+}
 export const getEntries =() =>{
     return fetch("http://localhost:8088/entries")
-    .then((response => response.json)
-    .then(parsedentries => {
-        journal = parsedentries
-    }))
-}
-
-   
-export const useJournalEntries = () => {
-    const sortedByDate = journal.sort(
-        (currentEntry, nextEntry) => {
-    console.log(currentEntry,nextEntry) 
-    Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
+    .then(response => response.json())
+    .then(parsedjournal=> {
+       journal = parsedjournal
         })
-    return sortedByDate
+    }
+
+// export const useJournalEntries = () => {
+//     const sortedByDate = journal.sort(
+//         (currentEntry, nextEntry) => {
+//     console.log(currentEntry,nextEntry) 
+//     Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
+//         })
+//     return sortedByDate
+// }
+
+
+export const saveJournalEntry = (entryobject) =>{
+ return fetch("http://localhost:8088/entries",{
+    method:"POST",
+     headers:{
+         "Content-Type" : "application/json"
+     },
+     body: JSON.stringify(saveJournalEntry)
+ })
+
+.then(getEntries)
+.then(dispatchStateChangeEvent)
 }
 
-// .then(parsedNotes => {
-//     notes = parsedNotes
-// })
+const dispatchStateChangeEvent = () => {
+    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
+}
+
