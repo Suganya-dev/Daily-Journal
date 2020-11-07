@@ -14,7 +14,7 @@ h1{
     padding-left: 35%;
 }
 
-.body {
+.article{
     border: 2px solid black;
     width:75%; 
     height: 100%; 
@@ -51,9 +51,11 @@ h1{
         width: 35%;
         height: 35%;
 }
-        /* padding-top: 0.35em;
-        padding-bottom: 0.625em;
-        padding-left: 0.75em;
-        padding-right: 0.75em; 
-        border: 2px solid black;
-      } 
+         .notesContainer{
+            border: 1px solid grey;
+            margin : auto;
+            padding: 60px;
+            background-color:rosybrown;
+            display: flex;
+            flex-wrap: wrap;
+         }

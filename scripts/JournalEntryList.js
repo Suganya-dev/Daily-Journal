@@ -1,23 +1,25 @@
-import { useJournalEntries } from "./JournalDataProvider.js"
+import { useEntries,getEntries } from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
 
+const eventHub= document.querySelector(".main")
+const contentTarget = document.querySelector(".notesContainer")
 
-export const EntryListComponent = () => {
-    const entryLog = document.querySelector(".article")
-
-    const entries = useJournalEntries() 
-    
-
-        let journalHTMLrepresentation =" "
-        for (const entry of entries) {
-        journalHTMLrepresentation += JournalEntryComponent (entry)
-        }
-
-        entryLog.innerHTML += ` 
-        <p class="bodydesign">   
-        <label for="date1"> Journal Entry: </label> 
-        <textarea rows="3" cols="3" ${journalHTMLrepresentation}> </textarea>
-     </p>
-    `
+export const journals = () =>{
+    getEntries().then(() =>{
+        const journalEntry = useEntries()
+        render(journalEntry)
+})
 }
- 
+
+eventHub.addEventListener("journalStateChanged",() => journals())
+
+const render = (journalArray) =>{
+
+    let journalHTMLrepresentation =" "
+       for (const entry of journalArray) {
+      journalHTMLrepresentation += JournalEntryComponent (entry)
+         }
+         contentTarget.innerHTML =
+          `
+         ${journalHTMLrepresentation}`
+        }
