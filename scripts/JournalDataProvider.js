@@ -1,3 +1,11 @@
+const eventHub= document.querySelector(".main")
+
+const dispatchStateChangeEvent = () => {
+    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
+}
+
+
+
 let journal = []
 
 export const useEntries = () =>{
@@ -20,6 +28,8 @@ export const getEntries =() =>{
 //     return sortedByDate
 // }
 
+// POST note object to API
+   
 
 export const saveJournalEntry = (entryobject) =>{
  return fetch("http://localhost:8088/entries",{
@@ -29,12 +39,11 @@ export const saveJournalEntry = (entryobject) =>{
      },
      body: JSON.stringify(saveJournalEntry)
  })
+ // then get all notes from API
+    // then dispatch state change event to event hub that notes have been updated
 
 .then(getEntries)
 .then(dispatchStateChangeEvent)
 }
 
-const dispatchStateChangeEvent = () => {
-    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
-}
 
