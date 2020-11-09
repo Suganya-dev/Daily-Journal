@@ -1,5 +1,6 @@
 import {getEntries,useEntries} from "./JournalDataProvider.js"
 import {saveJournalEntry} from "./JournalDataProvider.js"
+import {getMoods,useMoods} from "./JournalDataProvider.js"
 
 const eventHub = document.querySelector(".main")
 const contentTarget = document.querySelector(".article")
@@ -14,6 +15,12 @@ export const JournalFormComponent  = () =>{
     getEntries().then(() =>{
     const entriesData = useEntries()
     render(entriesData)
+    })
+}
+
+export const entryForm =() =>{
+    getMoods().then(() =>{
+        render(useMoods())
     })
 }
 // rendering and put it into DOM
@@ -34,13 +41,15 @@ const render = (entries) =>{
     <label for="date1"> Mood for the day:</label> 
     <select id= "entries--Moodfortheday" name="Mood for the day" > 
         <option value="0">Select Mood for the day</option>
-        <option value="Happy"> Happy</option>
-        <option value="Sad"> Sad</option>
-        <option value="Ok"> Ok</option>
+        ${entries.map(mood =>{
+            return `<option value=${mood.id}>${mood.label}</option>`
+        }).join("")}
+       
         </select>
         <button id="entries--journalentry">Record Journal Entry</button>`
        }
        
+
  
 
 eventHub.addEventListener("click",clickEvent =>{
@@ -55,15 +64,17 @@ eventHub.addEventListener("click",clickEvent =>{
 
     // make a note object
     const newNote = {
-        date,
-        concept,
-        entry,
-        mood,
-        timestamp
+        Date:date,
+        Concept: concept,
+        Entry: entry,
+        Mood: mood,
+        date: timestamp
+        
     }
     //  console.log(newNote)
     // POST object to database / API / json file
     saveJournalEntry(newNote)
+    // JournalFormComponent()
 }
 })
 

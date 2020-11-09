@@ -19,18 +19,6 @@ export const getEntries =() =>{
         })
     }
 
-// export const useJournalEntries = () => {
-//     const sortedByDate = journal.sort(
-//         (currentEntry, nextEntry) => {
-//     console.log(currentEntry,nextEntry) 
-//     Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
-//         })
-//     return sortedByDate
-// }
-
-// POST note object to API
-   
-
 export const saveJournalEntry = (entryobject) =>{
  return fetch("http://localhost:8088/entries",{
     method:"POST",
@@ -46,4 +34,17 @@ export const saveJournalEntry = (entryobject) =>{
 .then(dispatchStateChangeEvent)
 }
 
+let moods=[]
+
+export const useMoods=() =>{
+    return moods.slice()
+}
+
+export const getMoods = () =>{
+    return fetch("http://localhost:8088/moods")
+    .then(response =>response.json())
+    .then(parsedmoods =>{
+        moods=parsedmoods
+    })
+}
 
