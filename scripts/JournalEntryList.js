@@ -23,11 +23,10 @@ const render = (journalArray) =>{
 
     let journalHTMLrepresentation =" "
        for (const entry of journalArray) {
-      journalHTMLrepresentation += JournalEntryComponent(entry)
+       journalHTMLrepresentation += JournalEntryComponent(entry)
          }
          contentTarget.innerHTML =
-          `
-         ${journalHTMLrepresentation}`
+          `${journalHTMLrepresentation}`
         }
 
-      
+        
