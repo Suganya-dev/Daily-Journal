@@ -4,15 +4,13 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
 }
 
-
-
 let journal = []
 
 export const useEntries = () =>{
     return journal.slice()
 }
 export const getEntries =() =>{
-    return fetch("http://localhost:8088/entries")
+    return fetch("http://localhost:8088/entries?_expand=mood")
     .then(response => response.json())
     .then(parsedjournal=> {
        journal = parsedjournal
@@ -25,26 +23,28 @@ export const saveJournalEntry = (entryobject) =>{
      headers:{
          "Content-Type" : "application/json"
      },
-     body: JSON.stringify(saveJournalEntry)
+     body: JSON.stringify(entryobject)
  })
- // then get all notes from API
-    // then dispatch state change event to event hub that notes have been updated
-
 .then(getEntries)
 .then(dispatchStateChangeEvent)
 }
 
-let moods=[]
 
-export const useMoods=() =>{
-    return moods.slice()
-}
+// then get all notes from API
+    // then dispatch state change event to event hub that notes have been updated
 
-export const getMoods = () =>{
-    return fetch("http://localhost:8088/moods")
-    .then(response =>response.json())
-    .then(parsedmoods =>{
-        moods=parsedmoods
-    })
-}
+    
+export const useJournalEntries = () => {
+    const sortedByDate = entries.sort(
+        (currentEntry, nextEntry) =>
+            Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
+    )
+    return sortedByDate
+  }
 
+// const deleteNote = noteId => {
+//     return fetch(`http://localhost:8088/entries/${noteId}`, {
+//         method: "DELETE"
+//     })
+//         .then(getEntries)
+// }

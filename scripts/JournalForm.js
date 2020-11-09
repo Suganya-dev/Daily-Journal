@@ -1,9 +1,9 @@
-import {getEntries,useEntries} from "./JournalDataProvider.js"
+
 import {saveJournalEntry} from "./JournalDataProvider.js"
-import {getMoods,useMoods} from "./JournalDataProvider.js"
+import {getMoods,useMoods} from "./Moodprovider.js"
 
 const eventHub = document.querySelector(".main")
-const contentTarget = document.querySelector(".article")
+const contentTarget = document.querySelector("#journalForm")
 
 // create note form HTML with inputs and render form to DOM
 // add a click event for when user clicks the submit button
@@ -11,12 +11,12 @@ const contentTarget = document.querySelector(".article")
 
 // get the entriesdata from api
 
-export const JournalFormComponent  = () =>{
-    getEntries().then(() =>{
-    const entriesData = useEntries()
-    render(entriesData)
-    })
-}
+// export const JournalFormComponent  = () =>{
+//     getEntries().then(() =>{
+//     const entriesData = useEntries()
+//     render(entriesData)
+//     })
+// }
 
 export const entryForm =() =>{
     getMoods().then(() =>{
@@ -25,8 +25,8 @@ export const entryForm =() =>{
 }
 // rendering and put it into DOM
 
-const render = (entries) =>{
-    
+const render = (allMoods) =>{
+    console.log(allMoods)
     contentTarget.innerHTML = `
     <label for="date1"> Date of Entry :</label>
     <input type="date" name="date1" id="entries--date1" size="60">
@@ -41,7 +41,7 @@ const render = (entries) =>{
     <label for="date1"> Mood for the day:</label> 
     <select id= "entries--Moodfortheday" name="Mood for the day" > 
         <option value="0">Select Mood for the day</option>
-        ${entries.map(mood =>{
+        ${allMoods.map(mood =>{
             return `<option value=${mood.id}>${mood.label}</option>`
         }).join("")}
        

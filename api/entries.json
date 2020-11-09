@@ -5,67 +5,130 @@
       "date": "07/24/2025",
       "concept": "HTML & CSS",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Ok"
+      "moodId": "1"
     },
     {
       "id": 2,
       "date": "04/13/2025",
       "concept": "Complex flex box",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Ok"
+      "moodId": "2"
     },
     {
       "id": 3,
       "date": "10/24/2025",
       "concept": "Front end program",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Ok"
+      "moodId": "3"
     },
     {
       "id": 4,
       "date": "02/13/2025",
       "concept": "Complex flex box methods",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Ok"
+      "moodId": "2"
     },
     {
+      "Date": "2020-11-21",
+      "Concept": "API,fetch",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "3",
+      "date": 1604958272453,
       "id": 5
     },
     {
+      "Date": "2020-11-12",
+      "Concept": "HTML,CSS,Javascript",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "4",
+      "date": 1604958561512,
       "id": 6
     },
     {
+      "Date": "2020-11-05",
+      "Concept": "API,fetch",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "0",
+      "date": 1604958640186,
       "id": 7
     },
     {
+      "Date": "",
+      "Concept": "",
+      "Entry": "",
+      "Mood": "0",
+      "date": 1604958696943,
       "id": 8
     },
     {
+      "Date": "",
+      "Concept": "API,fetch",
+      "Entry": "",
+      "Mood": "3",
+      "date": 1604959429048,
       "id": 9
     },
     {
+      "Date": "",
+      "Concept": "HTML,CSS,Javascript",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "5",
+      "date": 1604959439815,
       "id": 10
     },
     {
+      "Date": "",
+      "Concept": "HTML,CSS,Javascript",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "5",
+      "date": 1604959441663,
       "id": 11
     },
     {
+      "Date": "",
+      "Concept": "",
+      "Entry": "",
+      "Mood": "2",
+      "date": 1604960408032,
       "id": 12
     },
     {
+      "Date": "2020-11-13",
+      "Concept": "HTML,CSS,Javascript",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "2",
+      "date": 1604960416176,
       "id": 13
     },
     {
+      "Date": "2020-11-20",
+      "Concept": "API,fetch",
+      "Entry": " we learned how to write programs and coding.",
+      "Mood": "5",
+      "date": 1604960585823,
       "id": 14
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Ok"
     },
     {
-      "id": 15
+      "id": 2,
+      "label": "Happy"
     },
     {
-      "id": 16
+      "id": 3,
+      "label": "Sad"
     },
     {
-      "id": 17
+      "id": 4,
+      "label": "Angry"
+    },
+    {
+      "id": 5,
+      "label": "Frustated"
     }
   ]
 }
