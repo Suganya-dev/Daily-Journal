@@ -24,15 +24,18 @@ const render = (journalArray)=>{
     let journalHTMLrepresentation = ""
 
     for(const obj of journalArray){
-        journalHTMLrepresentation += JournalEntryComponent(obj)
+        // const relatedjournal = journalArray.find(journals =>{
+        //     journals.id === obj.moodId)
+            journalHTMLrepresentation += JournalEntryComponent(obj)
+    }
+       
         // console.log(journalHTMLrepresentation)
-    
     contentTarget.innerHTML = `
         <section class="entryList">
         <h2>Notes container</h2>
         ${journalHTMLrepresentation}
             </section>`
-} }
+        }
 
 
 eventHub.addEventListener("click", clickEvent => {
@@ -54,19 +57,3 @@ eventHub.addEventListener("click", clickEvent => {
        )
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
