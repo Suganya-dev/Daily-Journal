@@ -1,5 +1,6 @@
 import { getEntries,useJournalEntries} from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
+import {deleteNote} from "./JournalDataProvider.js"
 
 const eventHub= document.querySelector(".main")
 const contentTarget = document.querySelector(".notesContainer")
@@ -34,6 +35,25 @@ const render = (journalArray)=>{
 } }
 
 
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")
+
+        /*
+            Invoke the function that performs the delete operation.
+
+            Once the operation is complete you should THEN invoke
+            useNotes() and render the note list again.
+        */
+       deleteNote(id).then(
+           () => {
+               const updatedentries = journals()
+            //    const criminals = useCriminals()
+               render(updatedentries)
+           }
+       )
+    }
+})
 
 
 

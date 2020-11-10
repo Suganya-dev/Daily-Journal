@@ -37,18 +37,11 @@ export const saveJournalEntry = (entryobject) =>{
 // then get all notes from API
     // then dispatch state change event to event hub that notes have been updated
 
-    
-// export const useJournalEntries = () => {
-//     const sortedByDate = entries.sort(
-//         (currentEntry, nextEntry) =>
-//             Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
-//     )
-//     return sortedByDate
-//   }
 
-// const deleteNote = noteId => {
-//     return fetch(`http://localhost:8088/entries/${noteId}`, {
-//         method: "DELETE"
-//     })
-//         .then(getEntries)
-// }
+
+export const deleteNote = entryId => {
+    return fetch(`http://localhost:8088/entries/${entryId}`, {
+        method: "DELETE"
+    })
+        .then(getEntries)
+}

@@ -29,37 +29,37 @@ const render = (allMoods) =>{
     console.log(allMoods)
     contentTarget.innerHTML = `
     <label for="date1"> Date of Entry :</label>
-    <input type="date" name="date1" id="entries--date1" size="60">
+    <input type="date" name="date1" id="journalDate" size="60">
 
     <label for="date1"> Concepts Covered :</label>
-    <input type="text" name="Concepts Covered" id="entries--conceptsCovered" size="65" maxlength="70">
+    <input type="text" name="Concepts Covered" id="journalConcepts" size="65" maxlength="70">
 
     <label for="date1"> Journal Entry: </label> 
-    <input type="text" id="entries--journalEntrydata">
+    <input type="text" id="journalSummary">
     <textarea rows="3" cols="3"> </textarea>
 
     <label for="date1"> Mood for the day:</label> 
-    <select id= "entries--Moodfortheday" name="Mood for the day" > 
+    <select id= "journalMood" name="Mood for the day" > 
         <option value="0">Select Mood for the day</option>
         ${allMoods.map(mood =>{
             return `<option value=${mood.id}>${mood.label}</option>`
         }).join("")}
        
         </select>
-        <button id="entries--journalentry">Record Journal Entry</button>`
+        <button id="journalentry">Record Journal Entry</button>`
        }
        
 
  
 
 eventHub.addEventListener("click",clickEvent =>{
-    if(clickEvent.target.id === "entries--journalentry"){
+    if(clickEvent.target.id === "#journalentry"){
        
     //    grab the input values
-    const date = document.querySelector("#entries--date1").value
-    const concept = document.querySelector("#entries--conceptsCovered").value
-    const entry = document.querySelector("#entries--journalEntrydata").value
-    const mood = document.querySelector("#entries--Moodfortheday").value
+    const date = document.querySelector("#journalDate").value
+    const concept = document.querySelector("#journalConcepts").value
+    const entry = document.querySelector("#journalSummary").value
+    const mood = document.querySelector("#journalMood").value
     const timestamp = Date.now()
 
     // make a note object
