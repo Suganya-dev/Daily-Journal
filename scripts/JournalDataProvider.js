@@ -6,11 +6,15 @@ const dispatchStateChangeEvent = () => {
 
 let journal = []
 
-export const useEntries = () =>{
-    return journal.slice()
+export const useJournalEntries = () => {
+    const sortedByDate = journal.sort(
+        (currentEntry, nextEntry) =>
+            Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
+            )
+            return sortedByDate
 }
 export const getEntries =() =>{
-    return fetch("http://localhost:8088/entries?_expand=mood")
+    return fetch("http://localhost:8088/entries")
     .then(response => response.json())
     .then(parsedjournal=> {
        journal = parsedjournal
@@ -34,13 +38,13 @@ export const saveJournalEntry = (entryobject) =>{
     // then dispatch state change event to event hub that notes have been updated
 
     
-export const useJournalEntries = () => {
-    const sortedByDate = entries.sort(
-        (currentEntry, nextEntry) =>
-            Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
-    )
-    return sortedByDate
-  }
+// export const useJournalEntries = () => {
+//     const sortedByDate = entries.sort(
+//         (currentEntry, nextEntry) =>
+//             Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
+//     )
+//     return sortedByDate
+//   }
 
 // const deleteNote = noteId => {
 //     return fetch(`http://localhost:8088/entries/${noteId}`, {

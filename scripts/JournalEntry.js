@@ -6,7 +6,7 @@ export const JournalEntryComponent = (entriesObj) =>{
      <h2> Title: Concepts Covered ${entriesObj.Title}</h2>
      <p>  Concept: ${entriesObj.concept}</p>
      <p> Entry: ${entriesObj.entry}</p>
-     <p> Mood: ${entriesObj.mood.label}</p>
+     <p> Mood: ${entriesObj.mood}</p>
      <p> timestamp: ${new Date(entriesObj.timestamp).toLocaleDateString('en-US')}</p>
      <button id="deleteNote--${entriesObj.id}">Delete</button>
     </section> `

@@ -12,7 +12,28 @@
       "body": "some comment",
       "postId": 1
     }
-  ]
-  
+  ],
+  "moods": [
+    {
+        "id": 1,
+        "label": "Ok"
+    },
+    {
+        "id": 2,
+        "label": "Happy"
+    },
+    {
+      "id": 3,
+      "label": "Sad"
+    },
+    {
+    "id": 4,
+    "label": "Angry"
+    },
+    {
+     "id": 5,
+     "label": "Frustated"
+    }
+]
 
 }
