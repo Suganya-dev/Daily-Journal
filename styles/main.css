@@ -14,7 +14,7 @@ h1{
     padding-left: 35%;
 }
 
-.article{
+#journalForm{
     border: 2px solid black;
     width:75%; 
     height: 100%; 
@@ -33,7 +33,7 @@ h1{
     color: black;
     font-size: 30px;
 }
-.one{
+.journalForm{
     border: 2px solid black;
     width: 30%;
     font-size: large;

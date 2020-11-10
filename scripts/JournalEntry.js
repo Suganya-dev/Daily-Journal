@@ -1,12 +1,18 @@
+/*
+ *  Purpose: To render a single journal entry as an
+ *           HTML representation of the data
+ */
 
-export const JournalEntryComponent = (entriesObj) =>{
+export const JournalEntryComponent = (entry) =>{
+  // console.log(entriesObj)
   return `
-    <section class= "entries">
-     <h2> Title: Concepts Covered ${entriesObj.Title}</h2>
-     <p>  Concept: ${entriesObj.concept}</p>
-     <p> Entry: ${entriesObj.entry}</p>
-     <p> Mood: ${entriesObj.mood}</p>
-     <p> timestamp: ${new Date(entriesObj.timestamp).toLocaleDateString('en-US')}</p>
-    </section> `
+  <div id="entry--${entry.id}" class="entryCard">
+  <h3>${entry.concept}</h3>
+  <p>${entry.date}</p>
+  <p>${entry.moodId}</p>
+  <p>${entry.entry}</p>
+  <button id="deleteNote--${entry.id}">Delete</button>
+</div>
+`
 
 }
