@@ -53,7 +53,7 @@ const render = (allMoods) =>{
  
 
 eventHub.addEventListener("click",clickEvent =>{
-    if(clickEvent.target.id === "#journalentry"){
+    if(clickEvent.target.id === "journalentry"){
        
     //    grab the input values
     const date = document.querySelector("#journalDate").value
@@ -64,11 +64,11 @@ eventHub.addEventListener("click",clickEvent =>{
 
     // make a note object
     const newNote = {
-        Date:date,
-        Concept: concept,
-        Entry: entry,
-        Mood: mood,
-        date: timestamp
+        date:date,
+        concept: concept,
+        entry: entry,
+        moodId: mood,
+        timestamp: timestamp
         
     }
     //  console.log(newNote)
