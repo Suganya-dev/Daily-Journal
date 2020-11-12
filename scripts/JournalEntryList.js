@@ -13,7 +13,7 @@ eventHub.addEventListener("journalStateChanged",() => journals())
 export const journals = () =>{
     getEntries().then(() =>{
         const journalEntry = useJournalEntries()
-        debugger
+        
         render(journalEntry)
 })
 }
