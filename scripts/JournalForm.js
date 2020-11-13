@@ -50,7 +50,7 @@ const render = (allMoods) =>{
        }
        
 
- 
+//  click button for saving 
 
 eventHub.addEventListener("click",clickEvent =>{
     if(clickEvent.target.id === "journalentry"){
@@ -74,7 +74,7 @@ eventHub.addEventListener("click",clickEvent =>{
     //  console.log(newNote)
     // POST object to database / API / json file
     saveJournalEntry(newNote)
-    // JournalFormComponent()
+   
 }
 })
 

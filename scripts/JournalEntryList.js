@@ -9,11 +9,11 @@ const contentTarget = document.querySelector(".notesContainer")
 eventHub.addEventListener("journalStateChanged",() => journals())
 
 // get the notes from the api >> use the notes array
-
+let journalEntry = []
 export const journals = () =>{
     getEntries().then(() =>{
-        const journalEntry = useJournalEntries()
-        debugger
+         journalEntry = useJournalEntries()
+        
         render(journalEntry)
 })
 }
@@ -21,10 +21,10 @@ export const journals = () =>{
 // iterate the notes array >> make an html representation each
 // render html string of notes to the notesContainer element on the DOM
 
-const render = (journalArray)=>{
+const render = ()=>{
     let journalHTMLrepresentation = ""
 
-    for(const obj of journalArray){
+    for(const obj of journalEntry){
         // const relatedjournal = journalArray.find(journals =>{
         //     journals.id === obj.moodId)
             journalHTMLrepresentation += JournalEntryComponent(obj)
@@ -38,7 +38,7 @@ const render = (journalArray)=>{
             </section>`
         }
 
-
+//  for DELETE button event handling
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteNote--")) {
         const [prefix, id] = clickEvent.target.id.split("--")
@@ -54,7 +54,20 @@ eventHub.addEventListener("click", clickEvent => {
                const updatedentries = journals()
             //    const criminals = useCriminals()
                render(updatedentries)
-           }
-       )
-    }
+           })}
 })
+
+// one to many relationships eventhandling
+ eventHub.addEventListener("moodFilter", event =>{
+    //  console.log("moodSelected",moodThatChosen)
+    const selectedMood = event.detail.moodName
+
+   const filteredArray = journalEntry.filter(journalObj =>{
+         if(journalObj.moodId === selectedMood){
+             return true
+         }
+     })
+     render(filteredArray)
+   
+ })
+
