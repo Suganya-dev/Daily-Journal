@@ -1,5 +1,9 @@
 export const moodCard = (moodObj) =>{
     return`
-    <li><input type="radio" name="moodFilter" value="${moodObj.id}" />
-  <label for="moodFilter--${moodObj.label}">${moodObj.label}</label></li>`
+    <li>
+    <label class="moodFilter">
+    <input type="radio" name="moodFilter" value="${moodObj.id}" />
+    <span>${moodObj.label}</span>
+   </label>
+   </li>`
 }

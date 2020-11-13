@@ -1,7 +1,8 @@
-import { render } from "./FilterBar.js"
+
 import {moodCard} from "./mood.js"
-import {getMoods,useMoods} from"./Moodprovider.js"
-const contentTarget = document.querySelector(".container")
+import {getMoods,useMoods} from"../Moodprovider.js"
+
+const  moodscontainer =document.querySelector(".filters")
 
 export const MoodFilter = () => {
     getMoods().then(()=>{
@@ -10,35 +11,34 @@ export const MoodFilter = () => {
         for(const mood of Moodarray){
             moodHTMLrepresentation += moodCard(mood)
         }
-        contentTarget.innerHTML += `
-        <legend><h3> Filter by mood </h3>
-        <ul> ${moodHTMLrepresentation}</ul>
-        </legend>`
+        moodscontainer.innerHTML  = `
+        <div class="filterBox">
+       <ul class="moodF">${moodHTMLrepresentation}<ul></div>`
     })
 }
 
 
 
-
-
-
-
-
-
-
-
+// export const MoodFilter = (allMoods) => {
 //     return `
 //         <fieldset class="fieldset">
-//         <legend>Filter Journal Entries by Mood</legend>
+//             <legend>Filter Journal Entries by Mood</legend>
 //             ${
-//             allMoods.map(
-//                 (mood) => {
-//                 return `<input type="radio" name="moodFilter" value="${ mood.id }"/>
-//                 <label for="moodFilter--happy">${ mood.label }</label>
-//                  `
-//                 }
+//                 allMoods.map(
+//                     (mood) => {
+//                         return `<input type="radio" name="moodFilter" value="${ mood.id }"/>
+//                         <label for="moodFilter--happy">${ mood.label }</label>
+//                         `
+//                     }
 //                 ).join("")
 //             }
 //         </fieldset>
 //         `
 // }
+
+
+
+
+
+
+
