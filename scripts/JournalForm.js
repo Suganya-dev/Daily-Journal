@@ -1,6 +1,7 @@
 
 import {saveJournalEntry} from "./JournalDataProvider.js"
 import {getMoods,useMoods} from "./Moodprovider.js"
+// import {useInstructors,getInstructors} from "./instructors/instructorprovider.js"
 
 const eventHub = document.querySelector(".main")
 const contentTarget = document.querySelector("#journalForm")
@@ -11,22 +12,20 @@ const contentTarget = document.querySelector("#journalForm")
 
 // get the entriesdata from api
 
-// export const JournalFormComponent  = () =>{
-//     getEntries().then(() =>{
-//     const entriesData = useEntries()
-//     render(entriesData)
-//     })
-// }
-
-export const entryForm =() =>{
-    getMoods().then(() =>{
-        render(useMoods())
+export const entryForm = () =>{
+    getMoods()
+     .then(() =>{
+        // allMoods = useMoods()
+        render( useMoods())
     })
-}
+    }
+
+
 // rendering and put it into DOM
 
 const render = (allMoods) =>{
     console.log(allMoods)
+   
     contentTarget.innerHTML = `
     <label for="date1"> Date of Entry :</label>
     <input type="date" name="date1" id="journalDate" size="60">
@@ -47,10 +46,19 @@ const render = (allMoods) =>{
        
         </select>
         <button id="journalentry">Record Journal Entry</button>`
-       }
-       
+    }
+      
 
-//  click button for saving 
+        // <label for="instructors"> Instructors: </label> 
+        // <select id= "instructorId" name="Instructors for the day" > 
+        //     <option value="0">Select Instructors for the day</option>
+        //     ${allinstructors.map(instructor =>{
+        //         return `<option value = ${instructor.id}>${instructor.first_name}</option>`
+        //     }).join("")}
+        //
+        
+            
+        //  click button for saving 
 
 eventHub.addEventListener("click",clickEvent =>{
     if(clickEvent.target.id === "journalentry"){
@@ -60,6 +68,7 @@ eventHub.addEventListener("click",clickEvent =>{
     const concept = document.querySelector("#journalConcepts").value
     const entry = document.querySelector("#journalSummary").value
     const mood = document.querySelector("#journalMood").value
+    // const instructors = document.querySelector("#instructorId").value
     const timestamp = Date.now()
 
     // make a note object
@@ -69,7 +78,7 @@ eventHub.addEventListener("click",clickEvent =>{
         entry: entry,
         moodId: mood,
         timestamp: timestamp
-        
+      
     }
     //  console.log(newNote)
     // POST object to database / API / json file
