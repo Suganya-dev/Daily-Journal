@@ -21,10 +21,10 @@ export const journals = () =>{
 // iterate the notes array >> make an html representation each
 // render html string of notes to the notesContainer element on the DOM
 
-const render = ()=>{
+const render = (journalArray)=>{
     let journalHTMLrepresentation = ""
 
-    for(const obj of journalEntry){
+    for(const obj of journalArray){
         // const relatedjournal = journalArray.find(journals =>{
         //     journals.id === obj.moodId)
             journalHTMLrepresentation += JournalEntryComponent(obj)
@@ -57,17 +57,36 @@ eventHub.addEventListener("click", clickEvent => {
            })}
 })
 
-// one to many relationships eventhandling
+// one to many relationships eventhandling for moods
  eventHub.addEventListener("moodFilter", event =>{
+    // debugger
     //  console.log("moodSelected",moodThatChosen)
     const selectedMood = event.detail.moodName
+    // console.log(selectedMood)
 
    const filteredArray = journalEntry.filter(journalObj =>{
-         if(journalObj.moodId === selectedMood){
+         if(parseInt(journalObj.moodId) === parseInt(selectedMood)){
              return true
          }
-     })
+     
+         
+        })
+    console.log(filteredArray)
      render(filteredArray)
    
  })
 
+// one to many relationship for instructors
+eventHub.addEventListener("instructorSelect",event =>{
+    debugger
+    const selectedinstruct = event.detail.instructorName
+    // console.log(selectedinstruct)
+
+    const filteredins = journalEntry.filter(insObj =>{
+        if(insObj.entry === parseInt(selectedinstruct)){ 
+            return true
+        }
+    })
+    console.log(filteredins)
+    render(filteredins)
+})
