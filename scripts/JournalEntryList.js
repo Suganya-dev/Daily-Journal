@@ -59,7 +59,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 // one to many relationships eventhandling for moods
  eventHub.addEventListener("moodFilter", event =>{
-    //  debugger
+    // debugger
     //  console.log("moodSelected",moodThatChosen)
     const selectedMood = event.detail.moodName
     // console.log(selectedMood)
@@ -76,3 +76,17 @@ eventHub.addEventListener("click", clickEvent => {
    
  })
 
+// one to many relationship for instructors
+eventHub.addEventListener("instructorSelect",event =>{
+    debugger
+    const selectedinstruct = event.detail.instructorName
+    // console.log(selectedinstruct)
+
+    const filteredins = journalEntry.filter(insObj =>{
+        if(insObj.entry === parseInt(selectedinstruct)){ 
+            return true
+        }
+    })
+    console.log(filteredins)
+    render(filteredins)
+})

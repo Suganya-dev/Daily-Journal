@@ -1,7 +1,7 @@
 
 import {saveJournalEntry} from "./JournalDataProvider.js"
 import {getMoods,useMoods} from "./Moodprovider.js"
-// import {useInstructors,getInstructors} from "./instructors/instructorprovider.js"
+import {useInstructors,getInstructors} from "./instructors/instructorprovider.js"
 
 const eventHub = document.querySelector(".main")
 const contentTarget = document.querySelector("#journalForm")
@@ -14,16 +14,17 @@ const contentTarget = document.querySelector("#journalForm")
 
 export const entryForm = () =>{
     getMoods()
+    .then(getInstructors)
      .then(() =>{
         // allMoods = useMoods()
-        render( useMoods())
+        render( useMoods(),useInstructors())
     })
     }
 
 
 // rendering and put it into DOM
 
-const render = (allMoods) =>{
+const render = (allMoods,allinstructors) =>{
     console.log(allMoods)
    
     contentTarget.innerHTML = `
@@ -42,6 +43,14 @@ const render = (allMoods) =>{
         <option value="0">Select Mood for the day</option>
         ${allMoods.map(mood =>{
             return `<option value=${mood.id}>${mood.label}</option>`
+        }).join("")}
+       
+        </select>
+        <label for="date1"> Instructor for the day:</label> 
+    <select id= "instructorforday" name="Instructor for the day" > 
+        <option value="0">Select Instructor for the day</option>
+        ${allinstructors.map(instructors=>{
+            return `<option value=${instructors.id}>${instructors.first_name}</option>`
         }).join("")}
        
         </select>

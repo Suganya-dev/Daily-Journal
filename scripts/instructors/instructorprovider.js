@@ -1,3 +1,5 @@
+const eventHub = document.querySelector(".main")
+
 let instructors = []
 
 export const useInstructors = () =>{
@@ -13,3 +15,14 @@ export const getInstructors =()=>{
         instructors = parsedinstructors
     })
 }
+
+eventHub.addEventListener("change",i =>{
+    if(i.target.id === "instructorforday"){
+    const instructorArray = new CustomEvent("instructorSelect",{
+        detail:{
+            instructorName: i.target.value
+        }
+    })
+    eventHub.dispatchEvent(instructorArray)
+    }
+})
